@@ -7,7 +7,6 @@ import { PostService } from "../../services/post.service";
   selector: "app-post-crud",
   templateUrl: "./post-crud.component.html",
   styleUrls: ["./post-crud.component.scss"],
-
 })
 export class PostCrudComponent implements OnInit {
   posts: Post[] = [];
