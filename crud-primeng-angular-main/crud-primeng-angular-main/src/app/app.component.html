@@ -1,0 +1,41 @@
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+<div class="main-container">
+  <div class="header-section">
+    <div class="header-content">
+      <div class="header-info">
+        <i class="pi pi-users header-icon"></i>
+        <div>
+          <h1 class="header-title">Mini Rede Social</h1>
+          <p class="header-subtitle">Compartilhe suas ideias e veja o que os amigos postaram</p>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat-card">
+          <i class="pi pi-pencil stat-icon"></i>
+          <div class="stat-info">
+            <span class="stat-number">{{ totalPosts }}</span>
+            <span class="stat-label">Posts Publicados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <app-create-post (postCreated)="reloadPosts()"></app-create-post>
+
+    <div *ngFor="let post of posts" class="post-card">
+      <div class="post-header">
+        <strong>{{ post.author || 'Anônimo' }}</strong>
+        <small>{{ post.created_at | date:'short' }}</small>
+      </div>
+      <p>{{ post.content }}</p>
+      <img *ngIf="post.image" [src]="post.image" alt="Imagem do post" style="max-width: 100%; max-height: 300px;" />
+      <button pButton type="button" icon="pi pi-heart" (click)="like(post.id)">
+        {{ post.likes_count }}
+      </button>
+    </div>
+  </div>
+</div>

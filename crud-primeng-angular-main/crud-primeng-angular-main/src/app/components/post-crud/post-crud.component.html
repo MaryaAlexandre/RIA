@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="content-section">
+    <!-- Componente de Lista -->
+    <app-post-list 
+      [posts]="posts"
+      (criar)="onCriar()"
+      (visualizar)="onVisualizar($event)"
+      (editar)="onEditar($event)"
+      (excluir)="onExcluir($event)">
+    </app-post-list>
+
+    <div class="empty-state" *ngIf="posts.length === 0">
+      <div class="empty-icon">
+        <i class="pi pi-inbox"></i>
+      </div>
+      <h3 class="empty-title">Nenhum post cadastrado</h3>
+      <p class="empty-description">Comece criando seu primeiro post clicando no botão "Novo Post"</p>
+      <button pButton label="Criar Primeiro Post" icon="pi pi-plus" 
+              class="p-button-success empty-action-btn" 
+              (click)="onCriar()">
+      </button>
+    </div>
+  </div>
+
+  <!-- Componente de Formulário -->
+  <app-post-form
+    [(visible)]="showFormDialog"
+    [post]="postSelecionado"
+    [isNew]="isNew"
+    (salvar)="onSalvarPost($event)">
+  </app-post-form>
+
+  <!-- Componente de Detalhes -->
+  <app-post-detail
+    [(visible)]="showDetailDialog"
+    [post]="postSelecionado"
+    (editar)="onEditarDoDetalhe($event)">
+  </app-post-detail>
+
+  <!-- Componente de Exclusão -->
+  <app-post-delete
+    [(visible)]="showDeleteDialog"
+    [post]="postSelecionado"
+    (confirmar)="onConfirmarExclusao($event)">
+  </app-post-delete>
+</div>
