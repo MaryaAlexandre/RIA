@@ -1,0 +1,13 @@
+{
+  "name": "Node.js & TypeScript",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+
+  "forwardPorts": [4200],
+  "runArgs": ["-p", "4200:4200"],
+  "customizations": {
+    "vscode": {
+      "extensions": ["Angular.ng-template", "esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+    }
+  },
+  "postCreateCommand": "npm install -g @angular/cli@19"
+}
