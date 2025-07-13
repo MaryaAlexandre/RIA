@@ -1,0 +1,52 @@
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+<div class="main-container">
+  <div class="header-section">
+    <div class="header-content">
+      <div class="header-info">
+        <i class="pi pi-users header-icon"></i>
+        <div>
+          <h1 class="header-title">{{ title }}</h1>
+          <p class="header-subtitle">Compartilhe suas ideias e veja o que os amigos postaram</p>
+        </div>
+      </div>
+      <div class="header-stats">
+        <p-card class="stat-card">
+          <div class="stat-content">
+            <i class="pi pi-pencil stat-icon"></i>
+            <div class="stat-info">
+              <span class="stat-number">{{ totalPosts }}</span>
+              <span class="stat-label">Posts Publicados</span>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <app-post-form (postCreated)="onPostCreated()"></app-post-form>
+
+    <div *ngIf="posts.length === 0" class="no-posts-message">
+      <p>Nenhum post ainda. Seja o primeiro a publicar!</p>
+    </div>
+
+    <div *ngFor="let post of posts" class="post-card p-card p-component">
+      <div class="p-card-header">
+        <div class="post-header-content">
+          <strong>{{ post.author || 'Anônimo' }}</strong>
+          <small>{{ post.created_at | date:'short' }}</small>
+        </div>
+      </div>
+      <div class="p-card-body">
+        <p>{{ post.content }}</p>
+        <img *ngIf="post.image" [src]="post.image" alt="Imagem do post" class="post-image" />
+      </div>
+      <div class="p-card-footer post-actions">
+        <button pButton type="button" icon="pi pi-heart" (click)="like(post.id!)" label="{{ post.likes_count }}"></button>
+        <button pButton type="button" icon="pi pi-trash" (click)="deletePost(post.id!)" class="p-button-danger p-ml-2"></button>
+      </div>
+    </div>
+  </div>
+</div>

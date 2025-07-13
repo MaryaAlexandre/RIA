@@ -1,0 +1,137 @@
+:host {
+  display: block;
+  font-family: var(--font-family);
+}
+
+.main-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.header-section {
+  background-color: var(--surface-100);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--surface-border);
+  margin-bottom: 20px;
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  gap: 20px; // Espaçamento entre os blocos no cabeçalho
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.header-title {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.header-subtitle {
+  margin: 0;
+  color: var(--text-color-secondary);
+}
+
+.header-stats {
+  .stat-card {
+    padding: 10px 20px;
+    background-color: var(--surface-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-1);
+  }
+
+  .stat-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+
+  .stat-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-color-secondary);
+  }
+}
+
+.content-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.post-card {
+  margin-bottom: 20px;
+  background-color: var(--surface-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-2);
+
+  .p-card-header {
+    padding: 1rem 1.25rem 0;
+  }
+
+  .post-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+    padding-bottom: 10px; // Espaço entre o cabeçalho e o corpo
+  }
+
+  .post-image {
+    max-width: 100%;
+    height: auto;
+    display: block; // Remove espaço extra abaixo da imagem
+    margin-top: 10px;
+    border-radius: var(--border-radius);
+  }
+
+  .p-card-footer.post-actions {
+    display: flex;
+    justify-content: flex-start; // Botões à esquerda
+    padding-top: 1rem; // Espaço acima dos botões
+    gap: 10px; // Espaço entre os botões
+  }
+}
+
+.no-posts-message {
+  text-align: center;
+  padding: 30px;
+  background-color: var(--surface-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-1);
+  color: var(--text-color-secondary);
+  font-style: italic;
+}
