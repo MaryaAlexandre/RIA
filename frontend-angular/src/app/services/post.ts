@@ -33,6 +33,6 @@ export class PostService {
   }
 
   deletePost(postId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}${postId}/`); // Note a barra no final para deletar
+    return this.http.delete<void>(`${this.apiUrl}${postId}/`); // barra no final para deletar
   }
 }
