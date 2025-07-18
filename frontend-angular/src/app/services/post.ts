@@ -17,7 +17,7 @@ export interface Post {
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl = 'http://localhost:8000/api/posts/'; 
+  private apiUrl = 'http://localhost:8000/api/posts/';
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<Post[]> {

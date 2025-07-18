@@ -6,9 +6,6 @@
 /* PrimeIcons via CDN (mantido para ícones) */
 @import url('https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css');
 
-/* IMPORTAÇÃO DO MÓDULO DE COR DO SASS */
-@use "sass:color";
-
 /* --- Variáveis SCSS para Cores e Espaçamento --- */
 $primary-color: #6366f1; // Indigo 500
 $primary-dark-color: #4f46e5; // Indigo 600

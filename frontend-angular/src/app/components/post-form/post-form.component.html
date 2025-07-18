@@ -1,0 +1,35 @@
+<!-- src/app/components/post-form/post-form.component.html -->
+
+<div class="post-form-card">
+  <div class="card-header">Criar Novo Post</div>
+  <div class="card-body">
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <div class="form-field">
+        <label for="author" class="form-label">Autor (Opcional)</label>
+        <input id="author" type="text" formControlName="author" placeholder="Seu nome ou apelido" class="form-input" />
+      </div>
+
+      <div class="form-field">
+        <label for="content" class="form-label">Conteúdo do Post <span class="required-indicator">*</span></label>
+        <textarea id="content" rows="5" formControlName="content" placeholder="O que você está pensando?" class="form-input form-textarea"></textarea>
+        <small *ngIf="postForm.get('content')?.invalid && postForm.get('content')?.dirty" class="error-message">
+          O conteúdo do post é obrigatório.
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="image" class="form-label">URL da Imagem (Opcional)</label>
+        <input id="image" type="text" formControlName="image" placeholder="Cole a URL da imagem aqui" class="form-input" />
+        <small class="help-text">Ex: https://example.com/sua-imagem.jpg</small>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="postForm.invalid || loading" class="submit-button primary">
+          <i *ngIf="loading" class="pi pi-spin pi-spinner button-icon"></i>
+          <i *ngIf="!loading" class="pi pi-send button-icon"></i>
+          Publicar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
